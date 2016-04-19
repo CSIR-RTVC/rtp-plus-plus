@@ -27,7 +27,7 @@ namespace media
 {
 const size_t READ_SIZE=20000u;
 
-YuvMediaSource::YuvMediaSource(const std::string& sFilename, const uint32_t uiWidth, const uint32_t uiHeight, bool bLoopSource, uint32_t uiLoopCount, uint32_t uiInitialBufferSize)
+YuvMediaSource::YuvMediaSource(const std::string& sFilename, const uint32_t uiWidth, const uint32_t uiHeight, bool bLoopSource, uint32_t uiLoopCount)
   :m_in(sFilename.c_str() , std::ifstream::in | std::ifstream::binary),
     m_rIn(m_in),
     m_eType(MT_YUV_420P),
@@ -47,9 +47,7 @@ YuvMediaSource::YuvMediaSource(const std::string& sFilename, const uint32_t uiWi
   parseStream();
 }
 
-
-
-YuvMediaSource::YuvMediaSource(std::istream& in1, const uint32_t uiWidth, const uint32_t uiHeight, bool bLoopSource, uint32_t uiLoopCount, uint32_t uiInitialBufferSize)
+YuvMediaSource::YuvMediaSource(std::istream& in1, const uint32_t uiWidth, const uint32_t uiHeight, bool bLoopSource, uint32_t uiLoopCount)
   :m_rIn(in1),
     m_eType(MT_YUV_420P),
     m_uiWidth(uiWidth),
