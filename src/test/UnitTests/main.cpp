@@ -27,7 +27,6 @@
 #endif
 
 using namespace std;
-using namespace rtp_plus_plus::test;
 
 BOOST_AUTO_TEST_CASE( tc_test_1)
 {

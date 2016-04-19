@@ -38,8 +38,8 @@ YuvMediaSource::YuvMediaSource(const std::string& sFilename, const uint32_t uiWi
     m_bLoopSource(bLoopSource),
     m_uiLoopCount(uiLoopCount),
     m_uiCurrentLoop(0),
-    m_uiYuvFrameSize(uiWidth * uiHeight * 1.5),
-    m_uiTotalFrames(0),
+    m_uiYuvFrameSize(static_cast<std::size_t>(uiWidth * uiHeight * 1.5)),
+    m_iTotalFrames(0),
     m_uiCurrentFrame(0),
     m_buffer(new uint8_t[m_uiYuvFrameSize], m_uiYuvFrameSize)
 {
@@ -56,15 +56,15 @@ YuvMediaSource::YuvMediaSource(std::istream& in1, const uint32_t uiWidth, const 
     m_bLoopSource(bLoopSource),
     m_uiLoopCount(uiLoopCount),
     m_uiCurrentLoop(0),
-    m_uiYuvFrameSize(uiWidth * uiHeight * 1.5),
-    m_uiTotalFrames(0),
+    m_uiYuvFrameSize(static_cast<std::size_t>(uiWidth * uiHeight * 1.5)),
+    m_iTotalFrames(0),
     m_uiCurrentFrame(0),
     m_buffer(new uint8_t[m_uiYuvFrameSize], m_uiYuvFrameSize)
 {
   VLOG(2) << "YUV properties width: " << m_uiWidth
           << " height: " << m_uiHeight
           << " YUV frame size: " << m_uiYuvFrameSize
-          << " Total frames: " << m_uiTotalFrames;
+          << " Total frames: " << m_iTotalFrames;
 
   checkInputStream();
   parseStream();
@@ -101,7 +101,8 @@ std::vector<MediaSample> YuvMediaSource::readMediaSample()
 
 std::vector<MediaSample> YuvMediaSource::getNextAccessUnit()
 {
-  if (m_uiCurrentFrame < m_uiTotalFrames)
+  assert(m_iTotalFrames > 0);
+  if (m_uiCurrentFrame < m_iTotalFrames)
   {
     std::vector<MediaSample> vFrame = readMediaSample();
     ++m_uiCurrentFrame;
@@ -143,14 +144,15 @@ void YuvMediaSource::checkInputStream()
 
 void YuvMediaSource::parseStream()
 {
+  assert(m_uiYuvFrameSize != 0);
   m_rIn.seekg(0, std::ios_base::end);
-  size_t uiTotalFileSize = m_rIn.tellg();
+  std::streampos uiTotalFileSize = m_rIn.tellg();
   m_rIn.seekg(0, std::ios_base::beg);
-  m_uiTotalFrames = uiTotalFileSize / m_uiYuvFrameSize;
+  m_iTotalFrames = uiTotalFileSize / m_uiYuvFrameSize;
   VLOG(12) << "YUV properties width: " << m_uiWidth
           << " height: " << m_uiHeight
           << " YUV frame size: " << m_uiYuvFrameSize
-          << " Total frames: " << m_uiTotalFrames;
+          << " Total frames: " << m_iTotalFrames;
 }
 
 } // media

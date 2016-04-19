@@ -116,9 +116,9 @@ private:
   // Current loop
   uint32_t m_uiCurrentLoop;
   // frame size
-  uint32_t m_uiYuvFrameSize;
+  std::size_t m_uiYuvFrameSize;
   // total frames
-  uint32_t m_uiTotalFrames;
+  int64_t m_iTotalFrames;
   // current frame
   uint32_t m_uiCurrentFrame;
   // buffer to read data into
