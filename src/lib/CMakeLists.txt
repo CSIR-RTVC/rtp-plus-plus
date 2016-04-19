@@ -100,7 +100,7 @@ ADD_LIBRARY( rtp++ STATIC ${RTP_SRCS} ${RTP_HEADERS})
 
 # adding precompiled header support on windows
 if (MSVC)
-   set_target_properties(Core PROPERTIES COMPILE_FLAGS "/Yustdafx.h")
-   set_source_files_properties(CorePch.cpp PROPERTIES COMPILE_FLAGS "/Ycstdafx.h")
+   set_target_properties(rtp++ PROPERTIES COMPILE_FLAGS "/Yustdafx.h")
+   set_source_files_properties(stdafx.cpp PROPERTIES COMPILE_FLAGS "/Ycstdafx.h")
 endif(MSVC)
 
