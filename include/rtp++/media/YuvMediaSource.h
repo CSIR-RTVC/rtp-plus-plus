@@ -25,10 +25,8 @@ along with rtp++.  If not, see <http://www.gnu.org/licenses/>.
 #include <rtp++/media/MediaSource.h>
 #include <rtp++/util/Buffer.h>
 
-namespace rtp_plus_plus
-{
-namespace media
-{
+namespace rtp_plus_plus {
+namespace media {
 
 /**
  * @brief YUV media source
@@ -127,4 +125,3 @@ private:
 
 } // media
 } // rtp_plus_plus
-

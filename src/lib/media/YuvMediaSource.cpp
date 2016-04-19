@@ -25,7 +25,6 @@ namespace rtp_plus_plus
 {
 namespace media
 {
-const size_t READ_SIZE=20000u;
 
 YuvMediaSource::YuvMediaSource(const std::string& sFilename, const uint32_t uiWidth, const uint32_t uiHeight, bool bLoopSource, uint32_t uiLoopCount)
   :m_in(sFilename.c_str() , std::ifstream::in | std::ifstream::binary),
@@ -63,8 +62,7 @@ YuvMediaSource::YuvMediaSource(std::istream& in1, const uint32_t uiWidth, const 
 {
   VLOG(2) << "YUV properties width: " << m_uiWidth
           << " height: " << m_uiHeight
-          << " YUV frame size: " << m_uiYuvFrameSize
-          << " Total frames: " << m_iTotalFrames;
+          << " YUV frame size: " << m_uiYuvFrameSize;
 
   checkInputStream();
   parseStream();

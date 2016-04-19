@@ -14,6 +14,7 @@
 #endif
 #include <iostream>
 #include <boost/test/unit_test.hpp>
+#include "Media.h"
 
 #ifdef _WIN32
 #pragma warning(push)     // disable for this header only
@@ -27,6 +28,7 @@
 #endif
 
 using namespace std;
+using namespace rtp_plus_plus::test;
 
 BOOST_AUTO_TEST_CASE( tc_test_1)
 {

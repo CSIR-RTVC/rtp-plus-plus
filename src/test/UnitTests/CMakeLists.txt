@@ -1,6 +1,7 @@
 # source files for Test
 
 SET(TEST_CORE_HEADERS
+Media.h
 )
 
 SET(TEST_CORE_SRCS
