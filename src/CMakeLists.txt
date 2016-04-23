@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.6)
 
 PROJECT( rtp++ )
 
-find_package (glog 0.3.4 REQUIRED)
+#find_package (glog 0.3.4 REQUIRED)
 
 message("Source Dir:" ${rtp++_SOURCE_DIR})
 
