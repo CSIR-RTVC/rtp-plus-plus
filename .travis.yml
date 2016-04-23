@@ -20,7 +20,7 @@ addons:
     - clang
     - cmake
     - cmake-data
-    - libboost1.57-all-dev
+    - libboost-all-dev
 
 before_script:  
     - mkdir build
