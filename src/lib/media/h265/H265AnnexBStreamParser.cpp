@@ -1,15 +1,29 @@
-#include "CorePch.h"
-#include <rtp++/media/h265/H265AnnexBStreamParser.h>
+/**********
+This file is part of rtp++ .
 
-#include <rtp++/media/MediaStreamParser.h>
+rtp++ is free software: you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+rtp++ is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with rtp++.  If not, see <http://www.gnu.org/licenses/>.
+
+**********/
+// "CSIR"
+// Copyright (c) 2016 CSIR.  All rights reserved.
+#include "stdafx.h"
+#include <rtp++/media/h265/H265AnnexBStreamParser.h>
 #include <rtp++/media/h265/H265NalUnitTypes.h>
 
-namespace rtp_plus_plus
-{
-namespace media
-{
-namespace h265
-{
+namespace rtp_plus_plus {
+namespace media {
+namespace h265 {
 
 H265AnnexBStreamParser::H265AnnexBStreamParser()
   :m_eMode(TM_FRAME_RATE),
@@ -385,6 +399,6 @@ H265AnnexBStreamParser::searchForNextNalStartCodeAndNalUnitType(const uint8_t* p
   return false;
 }
 
-}
-}
-}
+} // h265
+} // media
+} // rtp_plus_plus
