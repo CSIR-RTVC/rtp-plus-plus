@@ -144,7 +144,7 @@ ${rtp++_SOURCE_DIR}
 ${rtp++_SOURCE_DIR}/lib
 ${rtp++_SOURCE_DIR}/libs
 ${rtp++_SOURCE_DIR}/../include/rtp++/
-${rtp++_SOURCE_DIR}/../externals/glog/src/
+${rtp++_SOURCE_DIR}/../build/
 $ENV{BOOST_INCLUDE_DIR}
 /usr/local/include
 )
