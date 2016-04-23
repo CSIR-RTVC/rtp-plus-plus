@@ -144,6 +144,7 @@ ${rtp++_SOURCE_DIR}
 ${rtp++_SOURCE_DIR}/lib
 ${rtp++_SOURCE_DIR}/libs
 ${rtp++_SOURCE_DIR}/../include/rtp++/
+${CMAKE_CURRENT_BINARY_DIR}/
 ${rtp++_SOURCE_DIR}/../build/
 ${rtp++_SOURCE_DIR}/../externals/glog/src/
 $ENV{BOOST_INCLUDE_DIR}
